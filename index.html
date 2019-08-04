@@ -32,16 +32,21 @@
 
 <body>
 
-    <div id="app-loader" class="lds-dual-ring center" ></div>
+    <!-- loading screen -->
+    <div id="app-loader" class="lds-dual-ring center"></div>
 
+    <!-- main tag - here will be placed all the content of the application -->
     <main hidden>
+        <!-- hidden attribute because at first: the main tag is hidden and the loading screen visible-->
+        <!-- open menu button -->
         <button id="open-menu-btn" class="ripple">
             <img class="icon-sm-28" src="./assets/images/icons/menu.png" alt="">
         </button>
 
         <!-- currently weather section -->
         <section id="current-day-weather-container">
-            <h1 class="location-label">Belgrade</h1>
+            <!-- location that the user have inserted -->
+            <h1 class="location-label"></h1>
 
             <!-- icon,temperature, summary container -->
             <div class="flex-container" id="temperature-summary-container">
