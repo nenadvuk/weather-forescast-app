@@ -1,5 +1,7 @@
 /* ================================ CSS Reset  ================================*/
 
+/* delete the default styles of the browsers */
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -37,7 +39,7 @@ table {
 
 /* ================================ Loader ================================ */
 
-.lds-dual-ring {
+/* .lds-dual-ring {
     display: inline-block;
     width: 32px;
     height: 32px;
@@ -62,7 +64,40 @@ table {
     100% {
         transform: rotate(360deg);
     }
-}
+} */
+
+.lds-hourglass {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 6px;
+    box-sizing: border-box;
+    border: 26px solid #fff;
+    border-color: #353B48 transparent #353B48 transparent;
+    animation: lds-hourglass 1.2s infinite;
+  }
+  @keyframes lds-hourglass {
+    0% {
+      transform: rotate(0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+      transform: rotate(900deg);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+      transform: rotate(1800deg);
+    }
+  }
+  
 
 /* ================================ Ripple CSS ================================ */
 
@@ -126,6 +161,8 @@ button {
 
 /* ================================ General Used Classes ================================ */
 
+/* center elements both on X and Y axis */
+
 .center {
     position: absolute;
     left: 50%;
@@ -133,11 +170,15 @@ button {
     transform: translate(-50%, -50%);
 }
 
+/* center elements on X-axis */
+
 .center_x {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
+
+/* center elements on Y-axis */
 
 .center_y {
     position: relative;
@@ -145,13 +186,13 @@ button {
     transform: translateY(-50%);
 }
 
-/* display  */
+/* display none class, because hidden can not override the other styles */
 
 .display-none {
-    display: none;
+    display: none !important;
 }
 
-/* icons */
+/* icons  dimensions classes*/
 
 .icon-sm-25 {
     width: 25px;
@@ -167,15 +208,21 @@ button {
 
 /* encapsulating */
 
+/* general class for flex elements */
+
 .flex-container {
     display: flex;
     width: 100%;
     align-items: center;
 }
 
+/* make all the elements inside a flex container, to be equally distributed */
+
 .flex-container>* {
     flex: 1 1 0;
 }
+
+/* style the disabled buttons */
 
 .disabled {
     background-color: #ddd !important;
@@ -189,6 +236,7 @@ button {
     top: 20px;
     right: 20px;
     padding: 10px;
+    /* use z-index so the button will be on top of #current-day-weather-container */
     z-index: 1;
 }
 
@@ -219,6 +267,8 @@ button {
     align-items: center;
 }
 
+/* this is the div with the degrees and the summary */
+
 #temperature-summary-container>div:nth-child(2) {
     text-align: center;
 }
@@ -243,10 +293,13 @@ button {
     text-align: center;
 }
 
+/* center the humidity and the wind speed icons vertically with the text */
+
 #humidity-wind-container>div img {
     vertical-align: middle;
     position: relative;
     top: -3px;
+    /* move it top with 3px, because the text has a small gap on the edges */
     margin-right: 5px;
 }
 
@@ -271,36 +324,46 @@ button {
     overflow-y: scroll;
 }
 
+/* toggle button between hourly and daily weather panel */
+
 #toggle-hourly-weather {
     background-color: #353B48;
     border-radius: 100%;
     width: 50px;
     height: 50px;
+    /* box-shadow: h-offset v-offset blur spread color */
     box-shadow: 3px 0px 14px 2px rgba(000, 000, 000, .4);
+    /* z index 3 so it would be on top of other elements */
     z-index: 3;
     position: absolute;
+    /* move it top with half of his height and then to left with half of his width because the transform
+    property from center-x class was overrided. */
     transform: translate(-50%, -50%);
 }
 
-#toggle-hourly-weather img{
+#toggle-hourly-weather img {
+    /* set transition on transform, because we will rotate the arrow */
     transition: transform .5s;
 }
 
+/* weather box is each row of data from hourly and daily weather panel*/
 .weather-box {
     position: relative;
     margin-bottom: 15px;
 }
 
+/* this are the elements from the right */
 .weather-box>div:last-child {
     text-align: right;
 }
 
+/* this is the icon: make the space between the temperature and the icon smaller */
 .weather-box>div:last-child>div:last-child {
     flex: .5 .5 0;
 }
 
 /* current day hint */
-
+/* circle in front of current day */
 .current-day-of-the-week::before {
     content: "";
     display: block;
@@ -310,12 +373,12 @@ button {
     border-radius: 100%;
     background-color: #353B48;
     left: -15px;
-    top: calc(50% - 5px);
+    top: calc(50%);
     transform: translateY(-50%);
 }
 
 /* ================================ Daily Weather ================================ */
-
+/* set style of this container */
 #daily-weather-wrapper {
     background-color: rgba(000, 000, 000, .6);
     transition: opacity .5s;
@@ -349,12 +412,14 @@ button {
     transition: right .5s;
 }
 
+/* menu-container>div is the whole menu without the button */
 #menu-container>div {
     background-color: rgba(53, 59, 72, 0.9);
     width: 100%;
     height: 100%;
 }
 
+/* close menu button */
 #close-menu-btn {
     position: absolute;
     right: 0;
@@ -382,6 +447,7 @@ button {
     padding-bottom: 5px;
 }
 
+/* style the placeholder */
 #location-input::-webkit-input-placeholder {
     color: #acacac;
 }
@@ -408,7 +474,8 @@ button {
     font-size: 26px;
 }
 
-#saved-cities-wrapper{
+/* wrapper with the saved cities from the local storage */
+#saved-cities-wrapper {
     width: 100%;
     height: 50%;
     font-size: 18px;
@@ -416,22 +483,22 @@ button {
     overflow-y: scroll;
 }
 
-.saved-city-box{
+.saved-city-box {
     border-bottom: 2px solid #7F8C8D;
     padding-bottom: 8px;
     position: relative;
     margin-bottom: 20px;
 }
 
-.saved-city-box div:first-child{
+.saved-city-box div:first-child {
     flex: 5 5 0;
 }
 
-.saved-city-box div:last-child{
+.saved-city-box div:last-child {
     text-align: right;
 }
 
-.remove-saved-city{
+.remove-saved-city {
     color: #EE5253;
     border: 2px solid #EE5253;
     border-radius: 100%;
