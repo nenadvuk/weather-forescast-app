@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- App title -->
-    <title>Weather App</title>
+    <title>Weather Forecast App</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/images/icons/favicon96x96.ico" />
@@ -22,19 +22,23 @@
     <!-- Descriptive metas -->
     <meta name="description" content="Weather Application">
     <meta name="keywords" content="Weather Application, Weather">
-    <meta name="author" content="Georgian Stan">
+    <meta name="author" content="Nenad Vukasinovic">
 
+    <!-- Bootstrap -->
+   <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <!-- style -->
     <link rel="stylesheet" href="./style/index.css">
-    <!-- lato font -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
-</head>
+    <!-- Ubuntu font -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+
 
 <body>
 
     <!-- loading screen -->
     <div id="app-loader" class="lds-hourglass center"></div>
-   <!--  <div id="app-loader" class="lds-dual-ring center"></div> -->
+    <!--  <div id="app-loader" class="lds-dual-ring center"></div> -->
 
     <!-- main tag - here will be placed all the content of the application -->
     <main hidden>
@@ -67,12 +71,14 @@
             <div class="flex-container" id="humidity-wind-container">
                 <!-- humidty -->
                 <div>
+                    <h2>Humidity</h2><br>
                     <img class="icon-sm-30" src="./assets/images/icons/humidity.png" alt="humidity">
                     <span id="humidity-label"></span>
                 </div>
 
                 <!-- wind -->
                 <div>
+                    <h2>Wind speed</h2><br>
                     <img class="icon-sm-30" src="./assets/images/icons/wind-speed-flag.png" alt="humidity">
                     <span id="wind-speed-label"></span>
                 </div>
@@ -150,7 +156,7 @@
                     <!-- left this code here to better see what we have to build -->
                     <!-- <div class="flex-container saved-city-box">
                         <div class="ripple set-city">
-                            <h1 class="set-city">Brasov</h1>
+                            <h1 class="set-city">Belgrade</h1>
                         </div>
                         <div>
                             <button class="ripple remove-saved-city">-</button>

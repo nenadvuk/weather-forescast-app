@@ -98,7 +98,7 @@ const UI = (function () {
         // set humidty
         document.querySelector("#humidity-label").innerHTML = Math.round(currentlyData.humidity * 100) + '%';
         // set wind speed
-        document.querySelector("#wind-speed-label").innerHTML = (currentlyData.windSpeed * 1.6093).toFixed(1) + ' kph';
+        document.querySelector("#wind-speed-label").innerHTML = (currentlyData.windSpeed * 1.6093).toFixed(1) + ' km per hour';
 
         // set daily weather
         // ===================
