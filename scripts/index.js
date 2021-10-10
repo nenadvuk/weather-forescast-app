@@ -340,7 +340,7 @@ const GETLOCATION = (function () {
 const WEATHER = (function () {
 
     // private keys for the api
-    const darkSkyKey = 'f05f05163b67fef53a2b1f37dcf2f850', // https://darksky.net/dev
+    const darkSkyKey = '6519843608239def0265f4c2ac9d5186', // https://darksky.net/dev
         geocoderKey = '7f6f89c21f4445958685a3f9bc169976';  // https://opencagedata.com
 
 
